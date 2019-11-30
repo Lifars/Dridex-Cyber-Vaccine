@@ -1,13 +1,19 @@
 # Dridex-Vaccine
 
-This is a custom program written by <a href="https://lifars.com" target="_blank" rel="noopener noreferrer">LIFARS</a> Incident Reponse Team to remove Dridex infection for DoppelPaymer and BitPaymer Ransomware. 
+This is a custom program written by <a href="https://lifars.com" target="_blank" rel="noopener noreferrer">LIFARS</a> Incident Reponse Team to remove Dridex infection. 
 
 To read more about this check these LIFARS blogs:
 * <a href="https://lifars.com/2019/11/the-emergence-of-dridex/" target="_blank" rel="noopener noreferrer">The Emergence of Dridex</a>
 * <a href="https://lifars.com/2019/11/from-dridex-to-bitpaymer-ransomware-to-doppelpaymerthe-evolution/" target="_blank" rel="noopener noreferrer">From Dridex to BitPaymer Ransomware to DoppelPaymer……The Evolution</a>
 * <a href="https://lifars.com/2019/11/analysis-of-dridex-bitpaymer-and-doppelpaymer-campaign/" target="_blank" rel="noopener noreferrer">Analysis of Dridex, BitPaymer and DoppelPaymer campaign</a>
 
-## DEDRI Vaccine perform:
+## Usage
+
+* Create list of hostnames to be cleaned and save as `hostnames.txt`
+* Download [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) and save it to the same directory
+* Run `.\dedri-automatization.ps1` from PowerShell console (or, in case of execution of scripts is blocked, you can select all lines in PowerShell ISE and click on "Run Selection")
+
+## DEDRI Vaccine algorithm:
 
 * Find malicious injected thread in Explorer.exe via Process Monitor – if such thread exists, then DEDRI will suspend it
 * Find directories with Dridex artifacts – these directories could be found  in `%APPDATA%` of any user and in `%WinDir%\System32`. They have random-looking name and contain one legitimate Windows executable (same as its original in `%WinDir%\System32`), also could contain one .DLL library with legitimate name (but not legitimate content) which will be hijacked, and these directories could contain encrypted file with random-looking filename and extension beginning with char ‘x’
@@ -23,6 +29,13 @@ Find items pointing to some of the malicious directories with Dridex artifacts f
 * (Optionally) – prevent future successful Dridex execution by creating read-only file `“C:\Windows “` (including trailing space) – Dridex will not be able to use fake directory with same name for one of its stage
 * (Optionally) – prevent future successful BitPaymer ransomware infection by creating file `“C:\aaa_TouchMeNot_.txt”`
  
+## Notes
+* If PsExec is blocked in your environment, you can use `Invoke-Command -ComputerName ...` or Group Policy
+* Three Base64-encoded blobs in `dedri.ps` are embedded binary files of:
+  * Process Monitor executable for finding malicious thread
+  * Configuration for Process Monitor for findind malicious thread
+  * Process Hacker as a 2nd method for suspending and terminating malicious thread. It will be used only after the native method via Win32-API will fail
+
 For more information contact us at:
 
 * https://lifars.com/contact-us/
