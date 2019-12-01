@@ -12,10 +12,10 @@ To read more about this check these LIFARS blogs:
 * Create list of hostnames to be cleaned and save as `hostnames.txt`
 * Download [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) and save it to the same directory
 * Put Base64-encoded executables of [Process Monitor](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) and [Process Hacker](https://processhacker.sourceforge.io/) to the `dedri.ps1`:
-	```
+```
 $prochack_base64str = "<PUT BASE64-ENCODED PROCESSHACKER.EXE HERE>"
 $procmon_base64str = "<PUT BASE64-ENCODED PROCMON.EXE HERE>"
-	```
+```
 * Run `.\dedri-automatization.ps1` from PowerShell console (or, in case of execution of scripts is blocked, you can select all lines in PowerShell ISE and click on "Run Selection")
 
 ## DEDRI Vaccine algorithm:
