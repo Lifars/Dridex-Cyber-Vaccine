@@ -18,7 +18,7 @@ $procmon_base64str = "<PUT BASE64-ENCODED PROCMON.EXE HERE>"
 ```
 * Run `.\dedri-automatization.ps1` from PowerShell console (or, in case of execution of scripts is blocked, you can select all lines in PowerShell ISE and click on "Run Selection")
 
-## DEDRI Vaccine algorithm:
+## DEDRI Cyber Vaccine algorithm:
 
 * Find malicious injected thread in Explorer.exe via Process Monitor – if such thread exists, then DEDRI will suspend it
 * Find directories with Dridex artifacts – these directories could be found  in `%APPDATA%` of any user and in `%WinDir%\System32`. They have random-looking name and contain one legitimate Windows executable (same as its original in `%WinDir%\System32`), also could contain one .DLL library with legitimate name (but not legitimate content) which will be hijacked, and these directories could contain encrypted file with random-looking filename and extension beginning with char ‘x’
