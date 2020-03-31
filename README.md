@@ -1,4 +1,4 @@
-# Dridex-Vaccine
+# Dridex-Cyber-Vaccine
 
 This is a custom program written by <a href="https://lifars.com" target="_blank" rel="noopener noreferrer">LIFARS</a> Incident Reponse Team to remove Dridex infection. 
 
