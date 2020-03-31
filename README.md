@@ -45,8 +45,7 @@ Find items pointing to some of the malicious directories with Dridex artifacts f
 $base64string = [Convert]::ToBase64String([IO.File]::ReadAllBytes($FileName))
 ```
 
-For more information contact us at:
-
+For more information about Dridex virus detection, reverse malware binary analysis in our forensics laboratory, virus eradication and containment, isolation of compromised hosts, blocking lateral movement infections, and providing custom Cyber Vaccine please contact us at:
 * https://lifars.com/contact-us/
 * https://lifars.com/ransomware-response-and-cyber-extortion-bitcoin-decryption/
 
