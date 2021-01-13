@@ -491,7 +491,7 @@ function FindInfectedThread
         $InfectedThread = $TIDs[0].Name
     }
 
-    return $InfectedThread
+    return [int]$InfectedThread
 }
 
 function Prevent-Infection
