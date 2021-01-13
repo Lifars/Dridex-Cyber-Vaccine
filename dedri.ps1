@@ -544,7 +544,8 @@ Get-Date | Out-HostLogFile
 echo "    (Running detection of infected thread)" | Out-HostLogFile
 
 $InfectedThread = -1
-#$InfectedThread = FindInfectedThread
+## For disabling detection of infected thread, just comment the next line
+$InfectedThread = FindInfectedThread
 
 echo "Infected Thread:" | Out-HostLogFile
 if ($InfectedThread -ge 0)
